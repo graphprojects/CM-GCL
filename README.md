@@ -65,7 +65,7 @@ If our work helps you, please cite our paper:
 
 ## Logger
 This is a sample running logger which records the output and the model performance for AMiner data (also provide a output.log in aminer_data folder):
-'''
+```
 python main_graph_text_gcl.py
 
 Epoch: 1
@@ -899,6 +899,5 @@ Load model from epoch 199
 Model Testing: f1_micro_test: 0.8791 f1_macro_test: 0.8640 auc_test: 0.9805
 
 Process finished with exit code 0
-
-'''
+```
 
