@@ -13,7 +13,6 @@ from scripts.CMCL import NodeTextCLModel
 from utils.util import AvgMeter, get_lr
 from utils.params import args
 import torch.nn.utils.prune as prune
-import wandb
 from utils.util import seed_torch
 import finetune
 import warnings
@@ -106,7 +105,6 @@ def valid_epoch(model, feature,adj,valid_loader,pos):
 def main():
     my_time = time.strftime('%Y%m%d%H%M', time.gmtime(time.time()))
 
-    wandb.init(project="crossmodality", entity='jenniferqian')
     train_df, valid_df = make_train_valid_dfs()   # make train, validation datasets
     if args.text_encoder_model == 'distilbert-base-uncased':
         tokenizer = DistilBertTokenizer.from_pretrained(args.text_encoder_tokenizer) # read distil-bert language model
@@ -155,7 +153,6 @@ def main():
         if epoch % 5 == 0:
             with torch.no_grad():
                 valid_loss,node_embed_prune_val,node_embeds_val = valid_epoch(model,features,adj, valid_loader, pos)
-            wandb.log({"node_text_train_loss": train_loss.avg, "node_text_val_loss": valid_loss.avg})
 
             if valid_loss.avg < best_loss:
                 best_loss = valid_loss.avg
