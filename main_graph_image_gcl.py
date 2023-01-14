@@ -12,7 +12,6 @@ from scripts.CMCL import NodeImageCLModel
 from utils.util import AvgMeter, get_lr
 import torch.nn.utils.prune as prune
 import finetune
-import wandb
 import time
 from utils.params import args
 import warnings
@@ -98,8 +97,6 @@ def valid_epoch(model, feature,adj,valid_loader, pos):
 def main():
     my_time = time.strftime('%Y%m%d%H%M', time.gmtime(time.time()))
     save_model_path = "./pretrain/{}_node_image_{}.pt".format(args.dataset, my_time)
-    wandb.init(project="crossmodality", entity='jenniferqian')
-    config = wandb.config
     train_df, valid_df = make_train_valid_dfs()   # make train, validation datasets
 
     train_loader = build_loaders(train_df, mode="train")
@@ -137,7 +134,6 @@ def main():
             with torch.no_grad():
                 valid_loss,node_embed_prune_val,node_embeds_val = valid_epoch(model,features,adj, valid_loader, pos)
 
-            wandb.log({"loss_train": train_loss.avg, "loss_val": valid_loss.avg})
 
             if valid_loss.avg < best_loss:
                 best_loss = valid_loss.avg
