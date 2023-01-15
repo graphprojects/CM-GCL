@@ -3,7 +3,7 @@ import timm
 from transformers import DistilBertModel, DistilBertConfig
 from transformers import BertModel,BertConfig,BertTokenizer
 import torch.nn.functional as F
-from .modules_graph import GraphConvolution,GraphAttentionLayer,GraphSageConv
+from scripts.modules_graph import GraphConvolution,GraphAttentionLayer,GraphSageConv
 from utils import args
 from transformers import DistilBertTokenizer
 import cv2
