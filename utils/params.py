@@ -52,10 +52,6 @@ def aminer_params():
                         help='use GPU')
     parser.add_argument('--image_encoder_model', type=str, default='swin_small_patch4_window7_224',
                         help='resnet50, please refer to for more models')
-    # parser.add_argument('--text_encoder_model', type=str, default='bert-base-uncased',
-    #                     help='[bert-base-uncased,distilbert-base-uncased]')
-    # parser.add_argument('--text_encoder_tokenizer', type=str, default='bert-base-uncased',
-    #                     help='[bert-base-uncased,distilbert-base-uncased]')
     parser.add_argument('--text_encoder_model', type=str, default='distilbert-base-uncased',
                         help='[bert-base-uncased,distilbert-base-uncased]')
     parser.add_argument('--text_encoder_tokenizer', type=str, default='distilbert-base-uncased',
