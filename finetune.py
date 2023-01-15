@@ -18,7 +18,7 @@ import numpy as np
 
 # warnings.filterwarnings("ignore")
 seed_torch(46)
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 
 
 
@@ -66,7 +66,7 @@ def fine_tune(pretrained_model_dir,finetuned_feature_dir):
         model = NodeImageCLModel(features)
 
     model.eval()
-    model_dict = torch.load(pretrained_model_dir)
+    model_dict = torch.load(pretrained_model_dir,map_location=args.finetune_device)
     model_dict_copy = {}
     for key,v in model_dict.items():
         if '_orig' in key:
