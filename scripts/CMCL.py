@@ -3,7 +3,7 @@ from torch import nn
 import torch.nn.functional as F
 from utils import args
 from utils.getdata import get_transforms
-from .modules_model import ImageEncoder, TextEncoder, ProjectionHead,NodeEncoder,FeatureProjection
+from scripts.modules_model import ImageEncoder, TextEncoder, ProjectionHead,NodeEncoder,FeatureProjection
 
 
 class NodeImageCLModel(nn.Module):
