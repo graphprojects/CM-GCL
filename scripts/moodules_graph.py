@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from .modules_layer import GraphConvolution,GraphSageConv,GraphAttentionLayer
+from scripts.modules_layer import GraphConvolution,GraphSageConv,GraphAttentionLayer
 from utils.params import args
 
 class GCN(nn.Module):
