@@ -17,7 +17,7 @@ import warnings
 import numpy as np
 
 # warnings.filterwarnings("ignore")
-
+seed_torch(46)
 os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 
 
@@ -153,8 +153,8 @@ def fine_tune(pretrained_model_dir,finetuned_feature_dir):
 
 if __name__ == "__main__":
 
-    finetune_feature_path = r'./finetune/aminer_data/finetune_feature_202301141028.txt'
-    pretrained_model_dir = r'./pretrain/aminer_node_text_202301141028.pt'
-
+    finetune_feature_path = r'./finetune/aminer_data/finetune_feature_202301141240.txt'
+    pretrained_model_dir = r'./pretrain/aminer_node_text_202301141240.pt'
+    
     fine_tune(pretrained_model_dir,finetune_feature_path)
 
