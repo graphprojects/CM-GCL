@@ -12,8 +12,12 @@ Please run `pip install -r requirements.txt` to install all the dependencies.
 
 ## Usage
 ### Data Download
-As the data size is too large, please click on the link to download the [AMiner Data](https://drive.google.com/file/d/16X9y8iBL62j88YdhDaZQLOheuYlxFWiD/view?usp=sharing).
-Once download the data, please unzip the file and further put the unzipped data into the aminer_data folder.
+As the data size is too large, please click on the link to download the [AMiner Data](https://drive.google.com/file/d/1TJfviH4--HPp12jQnqbJEpO58GrHCexJ/view?usp=share_link).
+
+Tips: the file size is quite big including (a.) the AMiner data, (b.) the fine-tuned node features (finetune_feature_20301141240.txt), and (c.) the pre-trained pt model file (aminer_node_text_20301141240.pt). 
+
+Once finish downloading, please unzip the file and further put the unzipped data (part a) to the "data/aminer_data/" folder; the fine-tuned node features (part b) to "finetune/aminer_data/" folder; 
+the pre-trained pt file (part c) into the "pretrain/" folder;
 
 ### Model Pre-training
 For co-modality pre-training, we consider two types of modality combinations, i.e., graph modality and text modality, and 
@@ -27,8 +31,8 @@ graph modality and image modality in our paper:
 
 ```finetune.py``` contains the code of model finetuning for downstream tasks. 
 
-The default setting for AMiner data is all set. If you want to train the model, please run the code ```python main_graph_text_gcl.py``` over AMiner data after installing all required packages.
-It may take a while, you can also simply run the code ```python finetune.py``` to reproduce our results. We also provide a sample running log for the code above.
+The default setting for AMiner data is all set. If you want to train the model, please run the code ```python main_graph_text_gcl.py``` over AMiner data.
+It may take a while, you can also simply run the code ```python finetune.py``` to reproduce our results. We also provide a sample running log below.
 
 
 ## Dataset
@@ -899,5 +903,8 @@ Load model from epoch 199
 Model Testing: f1_micro_test: 0.8791 f1_macro_test: 0.8640 auc_test: 0.9805
 
 Process finished with exit code 0
+
+
 ```
+
 
